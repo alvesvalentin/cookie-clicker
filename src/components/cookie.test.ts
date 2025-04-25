@@ -22,8 +22,7 @@ describe('cookie', () => {
 
         assertAmountOfCookies(5);
 
-        const autoClicker = cookieComponent.getByRole('button')
-        await fireEvent.click(autoClicker);
+        await buyOneRobot()
 
         await waitFor(() => {
             assertAmountOfCookies(0)
@@ -34,8 +33,7 @@ describe('cookie', () => {
         await getFiveCookies();
         assertAmountOfCookies(5)
 
-        const autoClicker = cookieComponent.getByRole('button')
-        await fireEvent.click(autoClicker);
+        await buyOneRobot()
 
         await waitFor(async () => {
             assertAmountOfCookies(1)
@@ -45,9 +43,7 @@ describe('cookie', () => {
     test('show amount of robots bought', async () => {
         await getFiveCookies();
 
-        const autoClicker = cookieComponent.getByRole('button')
-        await fireEvent.click(autoClicker);
-
+        await buyOneRobot();
 
         await waitFor(async () => {
             const oneRobotBought = cookieComponent.getByRole('button', {name: 'Robots: 1'});
@@ -67,5 +63,10 @@ describe('cookie', () => {
         const counterWith5Cookies = cookieComponent.getByText(`Cookies ${amountToBeAsserted}`);
 
         expect(counterWith5Cookies).toBeDefined()
+    }
+
+    async function buyOneRobot() {
+        const autoClicker = cookieComponent.getByRole('button')
+        await fireEvent.click(autoClicker);
     }
 });

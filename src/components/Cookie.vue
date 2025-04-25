@@ -48,6 +48,7 @@ function toggleAutoClick() {
   display: flex;
   flex-direction: column;
 }
+
 svg {
   width: 300px;
   height: 300px;
