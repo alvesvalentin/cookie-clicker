@@ -1,0 +1,44 @@
+<script setup lang="ts">
+
+import {ref} from "vue";
+
+const counter = ref(0)
+</script>
+
+<template>
+  <div class="wrapper">
+    <span class="counter"> Cookies {{counter}}</span>
+    <svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg" @click="counter++">
+      <!-- Cookie base with a bite -->
+      <path d="M60,10
+           C80,10 105,30 105,55
+           C120,60 115,90 90,100
+           C80,110 60,110 40,105
+           C20,100 10,80 15,60
+           C5,50 10,30 30,20
+           C40,10 50,10 60,10Z"
+            fill="#dca87f" stroke="#a86b3c" stroke-width="4"/>
+
+      <!-- Chocolate chips -->
+      <circle cx="45" cy="35" r="5" fill="#5c3b1e"/>
+      <circle cx="65" cy="30" r="4" fill="#5c3b1e"/>
+      <circle cx="80" cy="50" r="6" fill="#5c3b1e"/>
+      <circle cx="50" cy="70" r="5" fill="#5c3b1e"/>
+      <circle cx="70" cy="80" r="4" fill="#5c3b1e"/>
+      <circle cx="35" cy="60" r="4" fill="#5c3b1e"/>
+    </svg>
+  </div>
+
+
+</template>
+
+<style scoped>
+.wrapper {
+  display: flex;
+  flex-direction: column;
+}
+svg {
+  width: 300px;
+  height: 300px;
+}
+</style>
