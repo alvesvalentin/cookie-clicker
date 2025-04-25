@@ -3,13 +3,24 @@
 import {ref} from "vue";
 
 const counter = ref(0)
+
+const amountOfRobots = ref(0)
+
+function toggleAutoClick() {
+  if (counter.value >= 5) {
+    counter.value -= 5
+    setInterval(() => {
+      counter.value++
+    }, 1000)
+  }
+}
 </script>
 
 <template>
   <div class="wrapper">
+    <button type="button" @click="toggleAutoClick()"> robots: {{amountOfRobots}} </button>
     <span class="counter"> Cookies {{counter}}</span>
-    <svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg" @click="counter++">
-      <!-- Cookie base with a bite -->
+    <svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg" role="img" @click="counter++">
       <path d="M60,10
            C80,10 105,30 105,55
            C120,60 115,90 90,100
@@ -19,7 +30,6 @@ const counter = ref(0)
            C40,10 50,10 60,10Z"
             fill="#dca87f" stroke="#a86b3c" stroke-width="4"/>
 
-      <!-- Chocolate chips -->
       <circle cx="45" cy="35" r="5" fill="#5c3b1e"/>
       <circle cx="65" cy="30" r="4" fill="#5c3b1e"/>
       <circle cx="80" cy="50" r="6" fill="#5c3b1e"/>
