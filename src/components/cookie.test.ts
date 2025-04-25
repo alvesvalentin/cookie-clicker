@@ -42,6 +42,20 @@ describe('cookie', () => {
         }, { timeout: 1000})
     })
 
+    test('show amount of robots bought', async () => {
+        await getFiveCookies();
+
+        const autoClicker = cookieComponent.getByRole('button')
+        await fireEvent.click(autoClicker);
+
+
+        await waitFor(async () => {
+            const oneRobotBought = cookieComponent.getByRole('button', {name: 'Robots: 1'});
+            expect(oneRobotBought).toBeDefined()
+        })
+
+    })
+
     async function getFiveCookies() {
         const cookie = cookieComponent.getByRole('img')
         for (let i = 0; i < 5; i++) {

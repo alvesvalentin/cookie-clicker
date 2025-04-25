@@ -9,6 +9,7 @@ const amountOfRobots = ref(0)
 function toggleAutoClick() {
   if (counter.value >= 5) {
     counter.value -= 5
+    amountOfRobots.value++
     setInterval(() => {
       counter.value++
     }, 1000)
@@ -18,7 +19,7 @@ function toggleAutoClick() {
 
 <template>
   <div class="wrapper">
-    <button type="button" @click="toggleAutoClick()"> robots: {{amountOfRobots}} </button>
+    <button type="button" @click="toggleAutoClick()"> Robots: {{amountOfRobots}} </button>
     <span class="counter"> Cookies {{counter}}</span>
     <svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg" role="img" @click="counter++">
       <path d="M60,10
