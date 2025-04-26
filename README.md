@@ -3,6 +3,6 @@
 Small game to help me practice Vue skills
 
 ## Roadmap
-- [ ] click and get one point
-- [ ] simple auto clicker
+- [x] click and get one point
+- [x] simple auto clicker
 - [ ] idk we'll see
